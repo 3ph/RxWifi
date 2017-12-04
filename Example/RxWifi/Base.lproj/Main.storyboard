@@ -1,25 +1,125 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="RxWifi_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wi-Fi is disabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCd-6m-Lw3">
+                                <rect key="frame" x="56.5" y="432" width="262.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IPv4: none" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqa-8a-LbH">
+                                <rect key="frame" x="56" y="514" width="262.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IPv6: none" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1G-EW-YFH">
+                                <rect key="frame" x="56.5" y="555" width="262.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SSID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qa2-F3-xgk">
+                                <rect key="frame" x="56.5" y="120" width="262.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="h16-za-Fa0"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fJC-Xz-Gzc">
+                                <rect key="frame" x="56.5" y="180" width="262.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="csm-yz-UQg"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAb-rN-CRY">
+                                <rect key="frame" x="56.5" y="260" width="262.5" height="30"/>
+                                <state key="normal" title="Connect"/>
+                                <state key="disabled" title="Connecting..."/>
+                                <connections>
+                                    <action selector="onConnectButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BbD-x2-86y"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSID: none" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKA-3R-EcO">
+                                <rect key="frame" x="57" y="596" width="262.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wi-Fi is disconnected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dI2-GT-nzt">
+                                <rect key="frame" x="56.5" y="473" width="262.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dI2-GT-nzt" firstAttribute="top" secondItem="cCd-6m-Lw3" secondAttribute="bottom" constant="20" id="2dg-jH-XXq"/>
+                            <constraint firstItem="iAb-rN-CRY" firstAttribute="width" secondItem="fJC-Xz-Gzc" secondAttribute="width" id="2wQ-Fs-Mpe"/>
+                            <constraint firstItem="SKA-3R-EcO" firstAttribute="top" secondItem="T1G-EW-YFH" secondAttribute="bottom" constant="20" id="7Mb-f1-guG"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="SKA-3R-EcO" secondAttribute="bottom" constant="50" id="9sL-lm-2Av"/>
+                            <constraint firstItem="dI2-GT-nzt" firstAttribute="width" secondItem="cCd-6m-Lw3" secondAttribute="width" id="Ban-Fs-YM6"/>
+                            <constraint firstItem="fJC-Xz-Gzc" firstAttribute="top" secondItem="Qa2-F3-xgk" secondAttribute="bottom" constant="30" id="HNq-ii-d9O"/>
+                            <constraint firstItem="SKA-3R-EcO" firstAttribute="width" secondItem="T1G-EW-YFH" secondAttribute="width" id="OxG-6y-42H"/>
+                            <constraint firstItem="Qa2-F3-xgk" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="100" id="TxM-d4-KgS"/>
+                            <constraint firstItem="dI2-GT-nzt" firstAttribute="centerX" secondItem="cCd-6m-Lw3" secondAttribute="centerX" id="UdH-2p-Wba"/>
+                            <constraint firstItem="T1G-EW-YFH" firstAttribute="width" secondItem="dI2-GT-nzt" secondAttribute="width" id="Wct-Dp-0VO"/>
+                            <constraint firstItem="cCd-6m-Lw3" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="XOK-NL-dxb"/>
+                            <constraint firstItem="iAb-rN-CRY" firstAttribute="top" secondItem="fJC-Xz-Gzc" secondAttribute="bottom" constant="50" id="Y1n-Po-bkV"/>
+                            <constraint firstItem="Qa2-F3-xgk" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.7" id="Z80-eG-btf"/>
+                            <constraint firstItem="T1G-EW-YFH" firstAttribute="top" secondItem="pqa-8a-LbH" secondAttribute="bottom" constant="20" id="av4-Ch-AwU"/>
+                            <constraint firstItem="iAb-rN-CRY" firstAttribute="centerX" secondItem="fJC-Xz-Gzc" secondAttribute="centerX" id="b6w-bd-Cix"/>
+                            <constraint firstItem="SKA-3R-EcO" firstAttribute="centerX" secondItem="T1G-EW-YFH" secondAttribute="centerX" id="bqm-12-eNt"/>
+                            <constraint firstItem="pqa-8a-LbH" firstAttribute="centerX" secondItem="cCd-6m-Lw3" secondAttribute="centerX" id="bx0-XL-siV"/>
+                            <constraint firstItem="dI2-GT-nzt" firstAttribute="bottom" secondItem="pqa-8a-LbH" secondAttribute="top" constant="-20" id="g4H-SG-8ur"/>
+                            <constraint firstItem="fJC-Xz-Gzc" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="j5r-Cn-vbt"/>
+                            <constraint firstItem="fJC-Xz-Gzc" firstAttribute="width" secondItem="Qa2-F3-xgk" secondAttribute="width" id="q6w-FB-Tch"/>
+                            <constraint firstItem="Qa2-F3-xgk" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="s6Z-as-Sco"/>
+                            <constraint firstItem="cCd-6m-Lw3" firstAttribute="width" secondItem="iAb-rN-CRY" secondAttribute="width" id="zFb-IT-LLT"/>
+                            <constraint firstItem="pqa-8a-LbH" firstAttribute="width" secondItem="cCd-6m-Lw3" secondAttribute="width" id="zZQ-sW-gmF"/>
+                            <constraint firstItem="T1G-EW-YFH" firstAttribute="centerX" secondItem="dI2-GT-nzt" secondAttribute="centerX" id="zoQ-F0-jtt"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="connectButton" destination="iAb-rN-CRY" id="YLw-Iz-K2D"/>
+                        <outlet property="ip4Label" destination="pqa-8a-LbH" id="8cG-v0-Soe"/>
+                        <outlet property="ip6Label" destination="T1G-EW-YFH" id="dyf-fu-J7e"/>
+                        <outlet property="isConnectedLabel" destination="dI2-GT-nzt" id="zSS-3M-Vgj"/>
+                        <outlet property="isEnabledLabel" destination="cCd-6m-Lw3" id="Zm7-4Q-KB5"/>
+                        <outlet property="passwordTextField" destination="fJC-Xz-Gzc" id="7I7-JC-6a0"/>
+                        <outlet property="ssidLabel" destination="SKA-3R-EcO" id="I8o-EL-Und"/>
+                        <outlet property="ssidTextField" destination="Qa2-F3-xgk" id="Oq3-h1-tIu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="30.134932533733135"/>
         </scene>
     </scenes>
 </document>

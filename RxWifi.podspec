@@ -9,16 +9,18 @@
 Pod::Spec.new do |s|
   s.name             = 'RxWifi'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of RxWifi.'
+  s.summary          = 'RxWifi is a reactive wrapper for Wi-Fi functionality.'
 
 # This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  RxWifi is reactive wrapper is a rective wrapper for Wi-Fi functionality on iOS.
+  It allows you to connect to Wi-Fi network from your app and you can also observe Wi-Fi various changes:
+  - Wi-Fi is enable on the system level
+  - Wi-Fi is connected to AP
+  - Current connected SSID
+  - Current IPv4 address
+  - Current IPv6 address
                        DESC
 
   s.homepage         = 'https://github.com/3ph/RxWifi'
@@ -28,15 +30,15 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/3ph/RxWifi.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'RxWifi/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'RxWifi' => ['RxWifi/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'RxSwift'
 end
