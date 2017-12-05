@@ -1,0 +1,6 @@
+framework module RxWifi {
+  umbrella header "RxWifi-umbrella.h"
+
+  export *
+  module * { export * }
+}
