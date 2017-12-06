@@ -22,6 +22,8 @@ public class RxWifi {
         case success
         case failure(Error)
     }
+    
+
 
     public static let shared = RxWifi()
     
@@ -253,5 +255,17 @@ public class RxWifi {
         }
         
         NSLog("\(debugDescription)")
+    }
+}
+
+extension RxWifi.Result: Equatable {}
+public func ==(lhs: RxWifi.Result, rhs: RxWifi.Result) -> Bool {
+    switch (lhs, rhs) {
+    case (.failure(_), .failure(_)):
+        return true
+    case (.success, .success):
+        return true
+    default:
+        return false
     }
 }

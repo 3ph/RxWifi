@@ -22,6 +22,12 @@
   "dependencies": {
     "RxSwift": [
 
+    ],
+    "RxNimble": [
+
     ]
+  },
+  "pod_target_xcconfig": {
+    "OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]": "-D IOS_SIMULATOR"
   }
 }

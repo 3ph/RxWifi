@@ -2,49 +2,34 @@
 
 import Quick
 import Nimble
+import RxNimble
 import RxWifi
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
-        describe("these will fail") {
+        describe("Sanity") {
 
-            it("can do maths") {
-                expect(1) == 2
+            // wifi is always enabled in simulator
+            it("isEnabled") {
+                expect(RxWifi.shared.isEnabled) == true
             }
 
-            it("can read") {
-                expect("number") == "string"
-            }
-
-            it("will eventually fail") {
-                expect("time").toEventually( equal("done") )
+            // wifi is always connected in simulator
+            it("isConnected") {
+                expect(RxWifi.shared.isEnabled) == true
             }
             
-            context("these will pass") {
-
-                it("can do maths") {
-                    expect(23) == 23
-                }
-
-                it("can read") {
-                    expect("🐮") == "🐮"
-                }
-
-                it("will eventually pass") {
-                    var time = "passing"
-
-                    DispatchQueue.main.async {
-                        time = "done"
-                    }
-
-                    waitUntil { done in
-                        Thread.sleep(forTimeInterval: 0.5)
-                        expect(time) == "done"
-
-                        done()
-                    }
-                }
+            // no ssid in simulator
+            it("SSID") {
+                expect(RxWifi.shared.connectedSsid).to(beNil())
             }
+
+            /*
+            it("ConnectFailure") {
+                let observable = RxWifi.shared.connect(ssid: String(), password: String())
+                expect(observable).first.toNot(equal(.success))
+            }
+ */
         }
     }
 }

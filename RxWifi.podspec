@@ -33,12 +33,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
 
   s.source_files = 'RxWifi/Classes/**/*'
-
-  # s.resource_bundles = {
-  #   'RxWifi' => ['RxWifi/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'RxSwift'
+  s.dependency 'RxNimble'
+  s.pod_target_xcconfig = { 'OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]' => '-D IOS_SIMULATOR' }
 end
