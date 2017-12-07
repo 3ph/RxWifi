@@ -7,21 +7,21 @@
 ![Swift](https://img.shields.io/badge/in-swift4.0-orange.svg)
 
 RxWifi is reactive wrapper for Wi-Fi functionality on iOS.
-It allows you to connect to Wi-Fi network from your app and you can also observe Wi-Fi various changes:
+It allows you to connect to Wi-Fi network from your app and you can also observe various Wi-Fi changes:
 
-- Wi-Fi is enable on the system level
-- Wi-Fi is connected to AP
+- Wi-Fi is enabled on the system level
+- Wi-Fi is connected to an AP
 - Current connected SSID
 - Current IPv4 address
 - Current IPv6 address
 
 ## Usage
 
-You can simply access the RxWifi by accessing `RxWifi.shared`.
+You can simply access the RxWifi by calling `RxWifi.shared`.
 
 #### Generic properties
 
-- `isEnabled` - flag determining if the Wi-Fi is turned on in system settings.
+- `isEnabled` - flag determining if the Wi-Fi is turned on in the system settings.
 - `isConnected` - flag determining if the system is currently connected to a Wi-Fi network.
 - `connectedSsid` - name of the currently connected SSID (or nil if not connected).
 - `ipv4` - IPv4 address (or nil if not connected).
@@ -33,7 +33,7 @@ You can simply access the RxWifi by accessing `RxWifi.shared`.
 #### Methods
 
 - `connect(ssid,password)`
-Tries to connect to Wi-Fi network with provided credentials. Uses `NetworkExtensions` framework to connect. Returns `Observable<ResultType>` with either `.success` or `.failure` (with error).
+Tries to connect to Wi-Fi network with provided credentials. Uses `NetworkExtensions` framework to connect (you won't be able to connect in Simulator). Returns `Observable<ResultType>` with either `.success` or `.failure` (with error).
 
 #### Rx observables
 
@@ -47,7 +47,7 @@ RxWifi also provides observables accessible through `rx` struct:
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, run `pod try RxWifi`.
 
 Please note that the `connect(:)` method won't work Simulator since it depends on the `NetworkExtensions` framework. I've added `IOS_SIMULATOR` flag so you can at least build for Simulator.
 
@@ -66,7 +66,7 @@ pod 'RxWifi'
 
 ## Author
 
-3ph, instantni.med@gmail.com
+Tomas Friml, instantni.med@gmail.com
 
 ## License
 
