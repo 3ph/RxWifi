@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RxWifi'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'RxWifi is a reactive wrapper for Wi-Fi functionality.'
 
 # This description is used to generate tags and improve search results.
