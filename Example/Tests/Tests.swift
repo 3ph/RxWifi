@@ -12,12 +12,12 @@ class TableOfContentsSpec: QuickSpec {
             // NOTE: these test work for TraviwCI
             // wifi is always disabled
             it("isEnabled") {
-                expect(RxWifi.shared.isEnabled) == true
+                expect(RxWifi.shared.isEnabled) == false
             }
 
             // wifi is always disconnected
             it("isConnected") {
-                expect(RxWifi.shared.isEnabled) == true
+                expect(RxWifi.shared.isEnabled) == false
             }
             
             // no ssid in simulator
