@@ -9,12 +9,13 @@ class TableOfContentsSpec: QuickSpec {
     override func spec() {
         describe("Sanity") {
 
-            // wifi is always enabled in simulator
+            // NOTE: these test work for TraviwCI
+            // wifi is always disabled
             it("isEnabled") {
                 expect(RxWifi.shared.isEnabled) == true
             }
 
-            // wifi is always connected in simulator
+            // wifi is always disconnected
             it("isConnected") {
                 expect(RxWifi.shared.isEnabled) == true
             }
