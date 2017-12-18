@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RxWifi'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'RxWifi is a reactive wrapper for Wi-Fi functionality.'
 
 # This description is used to generate tags and improve search results.
@@ -32,6 +32,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'RxWifi/Classes/**/*'
   s.dependency 'RxSwift'
-  s.dependency 'RxNimble'
   s.pod_target_xcconfig = { 'OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]' => '-D IOS_SIMULATOR', 'SWIFT_VERSION' => '4.0' }
 end
