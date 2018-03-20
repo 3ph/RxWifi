@@ -22,8 +22,6 @@ public class RxWifi {
         case success
         case failure(Error)
     }
-    
-
 
     public static let shared = RxWifi()
     
@@ -116,37 +114,7 @@ public class RxWifi {
         #endif
     }
     
-    public struct Rx {
-        public var isConnectedChanged: Observable<Bool> {
-            return _isConnectedChanged.asObservable()
-        }
-        
-        public var isEnabledChanged: Observable<Bool> {
-            return _isEnabledChanged.asObservable()
-        }
-        
-        public var ssidChanged: Observable<String?> {
-            return _ssidChanged.asObservable()
-        }
-        
-        public var ip4Changed: Observable<String?> {
-            return _ip4Changed.asObservable()
-        }
-        
-        public var ip6Changed: Observable<String?> {
-            return _ip6Changed.asObservable()
-        }
-        
-        // MARK: Private
-        fileprivate var _isConnectedChanged = BehaviorSubject<Bool>(value: false)
-        fileprivate var _isEnabledChanged = BehaviorSubject<Bool>(value: false)
-        fileprivate var _ssidChanged = BehaviorSubject<String?>(value: nil)
-        fileprivate var _ip4Changed = BehaviorSubject<String?>(value: nil)
-        fileprivate var _ip6Changed = BehaviorSubject<String?>(value: nil)
-    }
-    
-    public let rx = Rx()
-    
+
     // MARK: - Private
     fileprivate var _isEnabled = false
     fileprivate var _isConnected = false
@@ -159,6 +127,13 @@ public class RxWifi {
     
     fileprivate let _connectedInterface = "en0"
     fileprivate let _enabledInterface = "awdl0"
+    
+    // MARK: Rx
+    fileprivate var _isConnectedChanged = BehaviorSubject<Bool>(value: false)
+    fileprivate var _isEnabledChanged = BehaviorSubject<Bool>(value: false)
+    fileprivate var _ssidChanged = BehaviorSubject<String?>(value: nil)
+    fileprivate var _ip4Changed = BehaviorSubject<String?>(value: nil)
+    fileprivate var _ip6Changed = BehaviorSubject<String?>(value: nil)
     
     fileprivate init() {
         refreshInterfaceData()
@@ -220,22 +195,22 @@ public class RxWifi {
         
         if isEnabled != _isEnabled {
             _isEnabled = isEnabled
-            rx._isEnabledChanged.on(.next(_isEnabled))
+            _isEnabledChanged.on(.next(_isEnabled))
         }
         
         if isConnected != _isConnected {
             _isConnected = isConnected
-            rx._isConnectedChanged.on(.next(_isConnected))
+            _isConnectedChanged.on(.next(_isConnected))
         }
         
         if ip4 != _ipv4 {
             _ipv4 = ip4
-            rx._ip4Changed.on(.next(_ipv4))
+            _ip4Changed.on(.next(_ipv4))
         }
 
         if ip6 != _ipv6 {
             _ipv6 = ip6
-            rx._ip6Changed.on(.next(_ipv6))
+            _ip6Changed.on(.next(_ipv6))
         }
         
         var connectedSsid: String? = nil
@@ -251,10 +226,31 @@ public class RxWifi {
         
         if connectedSsid != _connectedSsid {
             _connectedSsid = connectedSsid
-            rx._ssidChanged.on(.next(_connectedSsid))
+            _ssidChanged.on(.next(_connectedSsid))
         }
-        
-        NSLog("\(debugDescription)")
+    }
+}
+
+extension RxWifi: ReactiveCompatible {}
+extension Reactive where Base: RxWifi {
+    public var isConnectedChanged: Observable<Bool> {
+        return base._isConnectedChanged.asObservable()
+    }
+    
+    public var isEnabledChanged: Observable<Bool> {
+        return base._isEnabledChanged.asObservable()
+    }
+    
+    public var ssidChanged: Observable<String?> {
+        return base._ssidChanged.asObservable()
+    }
+    
+    public var ip4Changed: Observable<String?> {
+        return base._ip4Changed.asObservable()
+    }
+    
+    public var ip6Changed: Observable<String?> {
+        return base._ip6Changed.asObservable()
     }
 }
 
