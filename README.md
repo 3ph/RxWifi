@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/RxWifi.svg?style=flat)](http://cocoapods.org/pods/RxWifi)
 [![License](https://img.shields.io/cocoapods/l/RxWifi.svg?style=flat)](http://cocoapods.org/pods/RxWifi)
 [![Platform](https://img.shields.io/cocoapods/p/RxWifi.svg?style=flat)](http://cocoapods.org/pods/RxWifi)
-![Swift](https://img.shields.io/badge/in-swift4.0-orange.svg)
+![Swift](https://img.shields.io/badge/in-swift4.2-orange.svg)
 
 RxWifi is reactive wrapper for Wi-Fi functionality on iOS.
 It allows you to connect to Wi-Fi network from your app and you can also observe various Wi-Fi changes:

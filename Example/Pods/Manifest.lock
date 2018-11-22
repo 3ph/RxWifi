@@ -1,34 +1,51 @@
 PODS:
-  - Nimble (7.0.3)
-  - Quick (1.2.0)
-  - RxBlocking (4.0.0):
+  - Nimble (7.3.1)
+  - Quick (1.3.2)
+  - RxAtomic (4.4.0)
+  - RxBlocking (4.4.0):
+    - RxAtomic (~> 4.4)
     - RxSwift (~> 4.0)
-  - RxNimble (4.1.0):
+  - RxNimble (4.4.0):
+    - RxNimble/RxBlocking (= 4.4.0)
+  - RxNimble/Core (4.4.0):
     - Nimble (~> 7.0)
-    - RxBlocking (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.0.0)
-  - RxWifi (0.0.2):
+    - RxSwift (~> 4.2)
+  - RxNimble/RxBlocking (4.4.0):
+    - RxBlocking
+    - RxNimble/Core
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - RxWifi (0.0.4):
     - RxSwift
 
 DEPENDENCIES:
-  - Nimble (~> 7.0.2)
-  - Quick (~> 1.2.0)
+  - Nimble (~> 7.3.1)
+  - Quick (~> 1.3.2)
   - RxNimble
   - RxWifi (from `../`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
+    - RxAtomic
+    - RxBlocking
+    - RxNimble
+    - RxSwift
+
 EXTERNAL SOURCES:
   RxWifi:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
-  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
-  RxBlocking: 923c2c8106d80d7c2d6b276afd66ce3b10824836
-  RxNimble: e5a34bf3b18d85406fc2a6e2cbc73aa2b4a858f0
-  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
-  RxWifi: 9bdfbc5ebca6ed92ca3a3dba678dab644c5f1123
+  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
+  RxNimble: ba6caf0195c37fd50dd4b967624b66ff580d781a
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxWifi: 2ad5bf417cd5496a8aad1f1bb9f79ad82764f4fe
 
-PODFILE CHECKSUM: 99868a972f85910f36d22ab2fb6aeb86a48cc0fe
+PODFILE CHECKSUM: 5f58ee7fe08faa9feb409e03da21b8368d9ab195
 
-COCOAPODS: 1.4.0.beta.2
+COCOAPODS: 1.5.3
